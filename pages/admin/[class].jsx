@@ -4,6 +4,8 @@ import { gql, useQuery } from "@apollo/client";
 import Header from "../../components/Header";
 import TableUser from "../../components/tableUser";
 import { AiOutlineCheckSquare } from "react-icons/ai";
+import { IoMdCodeWorking } from "react-icons/io";
+import { MdAssignmentInd, MdCreditScore } from "react-icons/md";
 
 const getClass = gql`
   query Class($id: String!) {
@@ -59,9 +61,21 @@ export default function WB() {
           {setClass?.class?.type}
         </div>
         <div className="MENUS ">
-          <div className="mt-24 flex text-3xl font-bold">
+          <div className="mt-24 flex text-3xl font-bold text-white">
             <AiOutlineCheckSquare className="w-7 mr-12" />
             <span>Attandance</span>
+          </div>
+          <div className="mt-9 flex text-3xl font-bold text-white">
+            <IoMdCodeWorking className="w-7 mr-12" />
+            <span>Productivities</span>
+          </div>
+          <div className="mt-9 flex text-3xl font-bold text-white">
+            <MdAssignmentInd className="w-7 mr-12" />
+            <span>Assignments</span>
+          </div>
+          <div className="mt-9 flex text-3xl font-bold text-white">
+            <MdCreditScore className="w-7 mr-12" />
+            <span>Score</span>
           </div>
         </div>
       </div>
