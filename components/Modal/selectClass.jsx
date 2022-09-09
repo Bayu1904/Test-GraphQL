@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { gql, useQuery } from "@apollo/client";
 import Link from "next/link";
 
@@ -12,12 +12,18 @@ const classFind = gql`
 `;
 
 export default function SelectClass({ data, button }) {
+  const [addClass, setAddClass] = useState(false);
+
   const { data: setClass } = useQuery(classFind, {
     variables: {
       batch: data,
     },
   });
-  console.log(setClass?.classes);
+
+  const handleClass = () => {
+    return setAddClass(!addClass);
+  };
+  console.log(data);
   return (
     <>
       <div className="w-screen h-screen bg-slate-700 opacity-50 fixed z-10"></div>
@@ -51,10 +57,27 @@ export default function SelectClass({ data, button }) {
           )}
         </div>
         <div className="w-44 m-auto mt-6">
-          <div className="bg-orange-300 border-dashed border-2 border-indigo-600 w-auto text-center py-1 rounded-md hover:bg-slate-600 hover:text-white hover:border-white cursor-pointer">
+          <div
+            onClick={handleClass}
+            className="bg-orange-300 border-dashed border-2 border-indigo-600 w-auto text-center py-1 rounded-md hover:bg-slate-600 hover:text-white hover:border-white cursor-pointer"
+          >
             + Add Classes
           </div>
         </div>
+        {addClass && (
+          <div className="mt-8 text-center">
+            <form action="" className="flex gap-3">
+              <input
+                type="text"
+                placeholder="class name"
+                className="rounded-lg border-orange-600"
+              />
+              <button className="px-9 py-2 bg-orange-300 rounded-lg">
+                Submit
+              </button>
+            </form>
+          </div>
+        )}
       </div>
     </>
   );
