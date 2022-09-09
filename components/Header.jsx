@@ -19,13 +19,13 @@ export default function Header() {
   return (
     <nav className="bg-white border-gray-200 px-2 sm:px-4 py-4 shadow-lg rounded dark:bg-gray-900 sticky top-0 z-10">
       <div className="container flex flex-wrap justify-between items-center mx-auto px-4 md:px-10">
-        <a href="https://flowbite.com/" className="flex items-center">
+        <Link href={"/"} className="flex items-center">
           <img
             src="https://dumbways.id/assets/images/brandred.png"
             className="mr-3 w-12 md:w-16"
             alt="Flowbite Logo"
           />
-        </a>
+        </Link>
         <div className=" md:order-2 hidden md:flex">
           {state.user.__typename == "Login" ? (
             <>
