@@ -29,9 +29,11 @@ export default function Header() {
         <div className=" md:order-2 hidden md:flex">
           {state.user.__typename == "Login" ? (
             <>
-              <span className="bg-orange-500 px-6 py-2 rounded-full font-bold text-white">
-                Hai {state.user?.user?.firstName}
-              </span>
+              <Link href="DashBordAdmin">
+                <span className="bg-orange-500 px-6 py-2 rounded-full font-bold text-white">
+                  Hai {state.user?.user?.firstName}
+                </span>
+              </Link>
               <span
                 onClick={handleLogOut}
                 className="text-orange-500 px-6 py-2 rounded-full font-bold cursor-pointer hover:text-orange-400"
