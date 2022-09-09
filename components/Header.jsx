@@ -29,7 +29,7 @@ export default function Header() {
         <div className=" md:order-2 hidden md:flex">
           {state.user.__typename == "Login" ? (
             <>
-              <Link href="/DashBordAdmin" className="cursor-pointer">
+              <Link href="/DashbordAdmin" className="cursor-pointer">
                 <span className="bg-orange-500 px-6 py-2 rounded-full font-bold text-white">
                   Hai {state.user?.user?.firstName}
                 </span>
